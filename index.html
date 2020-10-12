@@ -204,6 +204,12 @@ var link = document.getElementById('d')
 var source = document.getElementById('e')
 var title = document.getElementById('f')
 var selflink = document.getElementById('g')
+var spliturl = window.location.href.split('#')
+var baseurl = spliturl[0]
+var soundurl = function(file) {
+	var p = file.split('_', 2)
+	return baseurl + '#' + p[0] + '_' + p[1]
+}
 var soundname = function(file) {
 	var p = file.split('_', 3)[2];
 	return p.replaceAll('-', ' ').substring(0, p.indexOf('.'))
@@ -221,8 +227,7 @@ var showsound = function(file) {
 	var href = show[1] + '?t=' + soundtime(file)
 	link.innerHTML = href
 	link.setAttribute('href', href)
-	var p = file.split('_', 2)
-	selfhref = window.location.href.split('#')[0] + '#' + p[0] + '_' + p[1]
+	selfhref = soundurl(file)
 	g.innerHTML = selfhref
 	g.setAttribute('href', selfhref)
 	audio.setAttribute('src', file)
@@ -236,7 +241,8 @@ for (var file of files) {
 	if (divs[p[0]]) {
 		var a = document.createElement('a')
 		a.innerHTML = soundname(file)
-		a.setAttribute('href', 'javascript:dosound("' + file + '")')
+		a.setAttribute('href', soundurl(file))
+		a.setAttribute('onclick', 'dosound("' + file + '")')
 		divs[p[0]].appendChild(a)
 	} else {
 		var div = divs[p[0]] = document.createElement('div')
@@ -247,10 +253,9 @@ for (var file of files) {
 	}
 }
 showsound(files[0])
-var p = window.location.href.split('#')
-if (p.length == 2) {
+if (spliturl.length == 2) {
 	for (file of files) {
-		if (file.startsWith(p[1])) {
+		if (file.startsWith(spliturl[1])) {
 			dosound(file)
 			break;
 		}
