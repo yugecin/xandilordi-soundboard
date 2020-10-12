@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="US-ASCII">
+<title>Xander De Rycke Soundboard</title>
+<style>
+#a{margin-bottom:12em}
+#b{border-top:2px solid;text-align:center;position:fixed;bottom:0;left:0;right:0;background:#eee;height:12em}
+#a a{display:inline-block;margin:.2em .4em;background:#eee;border-radius:3px;border:1px solid #ccc;padding:.3em .4em}
+#a a:hover{background:#bbb}
+div>div{background:#ddd;padding:0.5em;margin-bottom:1em}
+h2{margin:0}
+</style>
+</head>
+<body>
+<h1>Xander De Rycke Soundboard</h1>
+<noscript>Javascript needs to be enabled</noscript>
+<div id="a"></div>
+<div id="b">
+<p><strong id="f"></strong><br/>Uit: <span id="e"></span><br/><a id="d" href=""></a><br><a id="g" href=""></a></p>
+<audio id="c" controls></audio>
+</div>
+<script>
+var files = [
+	'hhvb1718_0.02.43_onrecht.mp3',
+	'hhvb1718_0.02.51_plan.mp3',
+	'hhvb1718_0.03.38_ik-weet-het-ook-niet-meer.mp3',
+	'hhvb1718_0.03.43_ik-weet-het-echt-niet-meer.mp3',
+	'hhvb1718_0.06.23_nee.mp3',
+	'hhvb1718_0.08.37_hoho.mp3',
+	'hhvb1718_0.08.43_slecht-slecht.mp3',
+	'hhvb1718_0.10.56_nodig.mp3',
+	'hhvb1718_0.14.16_ge-ziet-het.mp3',
+	'hhvb1718_0.14.20_inteelt.mp3',
+	'hhvb1718_0.14.26_oren.mp3',
+	'hhvb1718_0.14.30_tegelspreuk.mp3',
+	'hhvb1718_0.14.50_een-letter.mp3',
+	'hhvb1718_0.15.05_ziet-er-goed-uit.mp3',
+	'hhvb1718_0.15.36_vlaamse-film.mp3',
+	'hhvb1718_0.17.26_raar.mp3',
+	'hhvb1718_0.17.32_uh.mp3',
+	'hhvb1718_0.18.55_hersenen.mp3',
+	'hhvb1718_0.19.00_goed-toen.mp3',
+	'hhvb1718_0.19.17_nie-goe-genoeg.mp3',
+	'hhvb1718_0.19.57_jawel.mp3',
+	'hhvb1718_0.20.53_jfc.mp3',
+	'hhvb1718_0.21.50_success.mp3',
+	'hhvb1718_0.21.55_verwachtingen.mp3',
+	'hhvb1718_0.21.58_vlaanderen.mp3',
+	'hhvb1718_0.22.28_success-kommet.mp3',
+	'hhvb1718_0.22.30_hype-kommet.mp3',
+	'hhvb1718_0.22.35_piraterij.mp3',
+	'hhvb1718_0.22.54_niemand.mp3',
+	'hhvb1718_0.23.25_piraterij.mp3',
+	'hhvb1718_0.23.35_darkweb.mp3',
+	'hhvb1718_0.23.47_kampioenen-darkweb.mp3',
+	'hhvb1718_0.25.24_de-god.mp3',
+	'hhvb1718_0.25.30_kalm.mp3',
+	'hhvb1718_0.25.33_jaa.mp3',
+	'hhvb1718_0.25.36_waarom-komen.mp3',
+	'hhvb1718_0.27.05_over-wa-bezig.mp3',
+	'hhvb1718_0.27.10_meer-vragen.mp3',
+	'hhvb1718_0.27.14_anabolen.mp3',
+	'hhvb1718_0.27.28_kevin-janssens-kin.mp3',
+	'hhvb1718_0.28.10_piet.mp3',
+	'hhvb1718_0.29.00_lamp.mp3',
+	'hhvb1718_0.29.23_kinepolis-broeknazis.mp3',
+	'hhvb1718_0.32.20_kinepolis.mp3',
+	'hhvb1718_0.33.33_woon-hier-niet.mp3',
+	'hhvb1718_0.33.42_much-more-than-cinema.mp3',
+	'hhvb1718_0.33.45_start-film.mp3',
+	'hhvb1718_0.34.55_bob.mp3',
+	'hhvb1718_0.35.50_innoveren.mp3',
+	'hhvb1718_0.36.27_neeee.mp3',
+	'hhvb1718_0.36.55_4d.mp3',
+	'hhvb1718_0.37.35_ruiken.mp3',
+	'hhvb1718_0.48.40_centjes.mp3',
+	'hhvb1718_0.48.46_loos.mp3',
+	'hhvb1718_0.54.23_hol.mp3',
+	'hhvb1718_0.54.30_leuke-dingen.mp3',
+	'hhvb1718_0.56.15_amerika.mp3',
+	'hhvb1718_0.56.20_goedkope-plastieke-versie.mp3',
+	'hhvb1718_0.56.45_svennie-hatsie-gamingbeurs.mp3',
+	'hhvb1718_0.57.00_centjes.mp3',
+	'hhvb1718_0.57.09_svennie-hatsie-spookseks.mp3',
+	'hhvb1718_0.57.18_goe-gedaan-svennie.mp3',
+	'hhvb1718_0.57.50_reactie-stilte.mp3',
+	'hhvb1718_0.58.00_gaan-we-niet-doen.mp3',
+	'hhvb1718_0.58.05_svennie-verkeerd-gedaan.mp3',
+	'hhvb1718_0.58.35_zender-website.mp3',
+	'hhvb1718_0.58.48_proton.mp3',
+	'hhvb1718_0.59.28_mee-met-de-stroom.mp3',
+	'hhvb1718_0.59.40_verkeerd-gedaan.mp3',
+	'hhvb1718_1.00.05_luidop-zeggen.mp3',
+	'hhvb1718_1.00.25_nu-wil-ik-dood.mp3',
+	'hhvb1718_1.01.57_hoho.mp3',
+	'hhvb1718_1.02.00_dans.mp3',
+	'hhvb1718_1.02.06_dood.mp3',
+	'hhvb1718_1.02.38_ge-moogt-nie.mp3',
+	'hhvb1718_1.02.40_mensen-opflikkeren-zever.mp3',
+	'hhvb1718_1.02.48_maken-daje-weg-zijt.mp3',
+	'hhvb1718_1.04.35_klinkt-zo-leuk.mp3',
+	'hhvb1718_1.06.12_zelfvertrouwen.mp3',
+	'hhvb1718_1.11.45_onbeleefd.mp3',
+	'hhvb1718_1.11.56_zou-het-nog-lang-duren.mp3',
+	'hhvb1718_1.13.38_lieve-jongen.mp3',
+	'hhvb1718_1.13.50_heel-zwaar.mp3',
+	'hhvb1718_1.14.10_wablief.mp3',
+	'hhvb1718_1.14.18_lach.mp3',
+	'hhvb1718_1.14.50_uw-job.mp3',
+	'hhvb1718_1.15.25_los-op-uw-bakkes.mp3',
+	'hhvb1718_1.15.27_pro.mp3',
+	'hhvb1718_1.16.24_confetti.mp3',
+	'hhvb1718_1.17.30_dingen-doen-altijd.mp3',
+	'hhvb1718_1.18.28_metoo.mp3',
+	'hhvb1718_1.22.08_waar-gaan-we-naartoe.mp3',
+	'hhvb1718_1.22.10_gaan-we-niet-doen.mp3',
+	'hhvb1718_1.22.37_ze-probeert-dingen.mp3',
+	'hhvb1718_1.23.18_toevallig-heel-specifiek.mp3',
+	'hhvb1718_1.25.40_guy-fantaseert.mp3',
+	'hhvb1718_1.26.14_vaas-gebroken.mp3',
+	'hhvb1718_1.28.05_van-de-vrouwkes-afblijven.mp3',
+	'hhvb1718_1.29.00_gaan-we-niet-meer-doen.mp3',
+	'hhvb1718_1.32.20_hippe-jeugd.mp3',
+	'hhvb1718_1.32.34_bucht.mp3',
+	'hhvb1718_1.39.35_stop-met-kijken.mp3',
+	'hhvb1718_1.39.42_potje-gezaag.mp3',
+	'hhvb1718_1.42.07_wa-ist.mp3',
+	'hhvb1718_1.42.50_span-er-een-net-over.mp3',
+	'hhvb1718_1.44.03_mensen-beu-worden.mp3',
+	'hhvb1718_1.44.32_zal-maar-meedoen.mp3',
+	'hhvb1718_1.52.00_sterk-argument.mp3',
+	'hhvb1718_1.53.45_we-zijn-vertrokken.mp3',
+	'hhvb1718_1.56.14_efkes.mp3',
+	'hhvb1718_1.56.35_gechoqueert.mp3',
+	'hhvb1718_1.57.08_stoute-meneer.mp3',
+	'hhvb1718_2.04.45_de-saga.mp3',
+	'hhvb1718_2.06.12_boeten.mp3',
+	'hhvb1718_2.07.10_die-weet-van-niets.mp3',
+	'hhvb1718_2.07.45_goe-bezig.mp3',
+	'hhvb1718_2.13.00_ding-houdt-schrijven.mp3',
+	'hhvb1718_2.18.25_pull.mp3',
+	'hhvb1819_0.14.45_i-dont-give-a-shit.mp3',
+	'hhvb1819_0.19.42_awoot.mp3',
+	'hhvb1819_0.19.55_bart-zijn-vakantiefilmpjes.mp3',
+	'hhvb1819_0.20.02_veel-veranderd-10j.mp3',
+	'hhvb1819_0.23.20_wijf-pech.mp3',
+	'hhvb1819_0.23.49_nie-zo-goe.mp3',
+	'hhvb1819_0.24.35_das-toch-goe.mp3',
+	'hhvb1819_0.24.46_die-club-met-die-letterkes.mp3',
+	'hhvb1819_0.25.55_doet-da-nooit-meer.mp3',
+	'hhvb1819_0.26.45_we-grijpen-net-naast.mp3',
+	'hhvb1819_0.27.50_gewoon-om-iets-te-voelen.mp3',
+	'hhvb1819_0.30.55_jujujujuju.mp3',
+	'hhvb1819_0.31.00_moe-van-adil-bilal.mp3',
+	'hhvb1819_0.31.03_fysiek-moe.mp3',
+	'hhvb1819_0.31.15_jujuju-putain.mp3',
+	'hhvb1819_0.33.39_daens.mp3',
+	'hhvb1819_0.36.55_ding-onder-bed.mp3',
+	'hhvb1819_0.36.55_ding-uit-kast.mp3',
+	'hhvb1819_0.36.55_spul-van-nachtmerries.mp3',
+	'hhvb1819_0.38.46_die-is-ier-nie.mp3',
+	'hhvb1819_0.39.39_mormel.mp3',
+	'hhvb1819_0.41.18_chatroom.mp3',
+	'hhvb1819_0.43.40_smakeloos.mp3',
+	'hhvb1819_0.44.30_geen-slechte-acteur.mp3',
+	'hhvb1819_0.45.00_wablieft.mp3',
+	'hhvb1819_0.46.25_blijft-goed.mp3',
+	'hhvb1819_0.47.40_zomer.mp3',
+	'hhvb1819_0.49.27_vort.mp3',
+	'hhvb1819_0.49.33_kitesurfen.mp3',
+	'hhvb1819_0.52.22_lees-ne-boek.mp3',
+	'hhvb1819_0.53.10_fiat.mp3',
+	'hhvb1819_0.54.44_biechtstoel.mp3',
+	'hhvb1819_0.54.55_trekt-op-niet.mp3',
+	'hhvb1819_0.56.18_jij-weet-niets.mp3',
+	'hhvb1819_1.02.10_cancel-het.mp3',
+	'hhvb1819_1.05.49_rondstaan.mp3',
+	'hhvb1819_1.10.05_professional.mp3',
+	'hhvb1819_1.11.38_vent.mp3',
+	'hhvb1819_1.22.05_fout-signaal.mp3',
+	'hhvb1819_1.33.05_tetten.mp3',
+	'hhvb1819_1.33.23_godverdomme.mp3',
+	'hhvb1819_1.35.15_ok.mp3',
+	'hhvb1819_1.35.24_tetten-ekkebah.mp3',
+	'hhvb1819_1.36.50_kust-mijn-kloten.mp3',
+	'hhvb1819_1.36.54_goe-argument.mp3',
+	'hhvb1819_1.46.10_moh.mp3',
+	'hhvb1819_1.48.55_prullevent.mp3',
+	'hhvb1819_1.49.05_bootgert.mp3',
+	'hhvb1819_1.51.20_10-miljoen.mp3',
+	'hhvb1819_1.54.45_knipoog.mp3',
+	'hhvb1819_2.08.50_nie-meewerken.mp3',
+	'hhvb1819_2.16.30_gij-moet-daar-mee-leven.mp3'
+]
+var shows = {
+	hhvb1718: [ 'Houdt het voor bekeken 2017-2018', 'https://youtu.be/92Ft0K7Lr6k' ],
+	hhvb1819: [ 'Houdt het voor bekeken 2018-2019', 'https://youtu.be/b8Kf4uiD-SE' ],
+}
+var divs = {}
+var main = document.getElementById('a')
+var audio = document.getElementById('c')
+var link = document.getElementById('d')
+var source = document.getElementById('e')
+var title = document.getElementById('f')
+var selflink = document.getElementById('g')
+var soundname = function(file) {
+	var p = file.split('_', 3)[2];
+	return p.replaceAll('-', ' ').substring(0, p.indexOf('.'))
+}
+var soundtime = function(file) {
+	return file.split('_', 2)[1].replace('.', 'h').replace('.', 'm') + 's'
+}
+var soundshow = function(file) {
+	return shows[file.split('_', 1)[0]]
+}
+var showsound = function(file) {
+	title.innerHTML = soundname(file)
+	var show = soundshow(file)
+	source.innerHTML = show[0]
+	var href = show[1] + '?t=' + soundtime(file)
+	link.innerHTML = href
+	link.setAttribute('href', href)
+	var p = file.split('_', 2)
+	selfhref = window.location.href.split('#')[0] + '#' + p[0] + '_' + p[1]
+	g.innerHTML = selfhref
+	g.setAttribute('href', selfhref)
+	audio.setAttribute('src', file)
+}
+var dosound = function(file) {
+	showsound(file)
+	audio.play()
+}
+for (var file of files) {
+	var p = file.split('_', 1)
+	if (divs[p[0]]) {
+		var a = document.createElement('a')
+		a.innerHTML = soundname(file)
+		a.setAttribute('href', 'javascript:dosound("' + file + '")')
+		divs[p[0]].appendChild(a)
+	} else {
+		var div = divs[p[0]] = document.createElement('div')
+		main.appendChild(div)
+		var h = document.createElement('h2')
+		h.innerHTML = soundshow(file)[0]
+		div.appendChild(h)
+	}
+}
+showsound(files[0])
+var p = window.location.href.split('#')
+if (p.length == 2) {
+	for (file of files) {
+		if (file.startsWith(p[1])) {
+			dosound(file)
+			break;
+		}
+	}
+}
+</script>
+</body>
+</html>
