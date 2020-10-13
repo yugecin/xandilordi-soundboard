@@ -239,19 +239,18 @@ var dosound = function(file) {
 }
 for (var file of files) {
 	var p = file.split('_', 1)
-	if (divs[p[0]]) {
-		var a = document.createElement('a')
-		a.innerHTML = soundname(file)
-		a.setAttribute('href', soundurl(file))
-		a.setAttribute('onclick', 'dosound("' + file + '")')
-		divs[p[0]].appendChild(a)
-	} else {
+	if (!divs[p[0]]) {
 		var div = divs[p[0]] = document.createElement('div')
 		main.appendChild(div)
 		var h = document.createElement('h2')
 		h.innerHTML = soundshow(file)[0]
 		div.appendChild(h)
 	}
+	var a = document.createElement('a')
+	a.innerHTML = soundname(file)
+	a.setAttribute('href', soundurl(file))
+	a.setAttribute('onclick', 'dosound("' + file + '")')
+	divs[p[0]].appendChild(a)
 }
 showsound(files[0])
 if (spliturl.length == 2) {
