@@ -19,7 +19,7 @@ h2{margin:0}
 <noscript>Javascript needs to be enabled</noscript>
 <div id="a"></div>
 <div id="b">
-<p><strong id="f"></strong><br/>Uit: <span id="e"></span><br/><a id="d" href=""></a><br><a id="g" href=""></a></p>
+<p><strong id="f"></strong><br/>Uit: <span id="e"></span><br/><a id="d" href=""></a></p>
 <audio id="c" controls></audio>
 </div>
 <script>
@@ -213,7 +213,6 @@ var audio = document.getElementById('c')
 var link = document.getElementById('d')
 var source = document.getElementById('e')
 var title = document.getElementById('f')
-var selflink = document.getElementById('g')
 var spliturl = window.location.href.split('#')
 var baseurl = spliturl[0]
 var soundurl = function(file) {
@@ -237,9 +236,6 @@ var showsound = function(file) {
 	var href = show[1] + '?t=' + soundtime(file)
 	link.innerHTML = href
 	link.setAttribute('href', href)
-	selfhref = soundurl(file)
-	g.innerHTML = selfhref
-	g.setAttribute('href', selfhref)
 	audio.setAttribute('src', file)
 }
 var dosound = function(file) {
