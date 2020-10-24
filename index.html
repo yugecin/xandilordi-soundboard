@@ -244,7 +244,7 @@ var soundurl = function(file) {
 }
 var soundname = function(file) {
 	var p = file.split('_', 3)[2];
-	return p.replaceAll('-', ' ').substring(0, p.indexOf('.'))
+	return actualReplaceAll(p, '-', ' ').substring(0, p.indexOf('.'))
 }
 var soundtime = function(file) {
 	return file.split('_', 2)[1].replace('.', 'h').replace('.', 'm') + 's'
@@ -264,6 +264,12 @@ var showsound = function(file) {
 var dosound = function(file) {
 	showsound(file)
 	audio.play()
+}
+var actualReplaceAll = function(str, search, replacement) {
+	while (str.indexOf(search) != -1) {
+		str = str.replace(search, replacement)
+	}
+	return str;
 }
 for (var file of files) {
 	var p = file.split('_', 1)
