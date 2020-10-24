@@ -5,13 +5,11 @@
 <meta charset="US-ASCII">
 <title>Xander De Rycke Soundboard</title>
 <style>
-body{font-family:sans-serif}
+body{font-family:sans-serif;text-align:center}
 #a{margin-bottom:13em}
-#b{border-top:2px solid;text-align:center;position:fixed;bottom:0;left:0;right:0;background:#eee;height:12em}
+#b{border-top:2px solid;position:fixed;bottom:0;left:0;right:0;background:#eee;height:12em}
 #a a{display:inline-block;margin:.2em .4em;background:#eee;border-radius:3px;border:1px solid #ccc;padding:.3em .4em}
 #a a:hover{background:#bbb}
-#a img{display:block;margin:auto}
-h1,div>div{text-align:center}
 div>div{border-radius:2px;background:#ddd;padding:0.5em;margin-bottom:1em}
 h2{margin:0}
 h1 img{height:1em}
@@ -28,9 +26,26 @@ h1 img+img{transform:scaleX(-1)}
 </div>
 <script>
 var files = [
+	'hhvb1617_0.08.00_ik-wil-nie.mp3',
+	'hhvb1617_0.08.05_doorvertellen.mp3',
+	'hhvb1617_0.08.09_toch.mp3',
+	'hhvb1617_0.10.12_DDT.mp3',
 	'hhvb1617_0.12.22_depressie.mp3',
 	'hhvb1617_0.12.30_speciaal.mp3',
 	'hhvb1617_0.12.45_zien.mp3',
+	'hhvb1617_0.16.00_geconstipeerd.mp3',
+	'hhvb1617_0.21.42_vader.mp3',
+	'hhvb1617_0.27.14_openminded.mp3',
+	'hhvb1617_0.30.02_nee-jong.mp3',
+	'hhvb1617_0.31.00_sexisme.mp3',
+	'hhvb1617_0.31.10_verontwaardiging.mp3',
+	'hhvb1617_0.31.13_sexisme2.mp3',
+	'hhvb1617_0.33.00_geluid.mp3',
+	'hhvb1617_0.35.14_piemel.mp3',
+	'hhvb1617_0.35.26_magische-plek.mp3',
+	'hhvb1617_0.40.21_ijzer-smeden.mp3',
+	'hhvb1617_0.40.52_kinderfilm.mp3',
+	'hhvb1617_0.43.54_ja-en.mp3',
 	'hhvb1718_0.02.43_onrecht.mp3',
 	'hhvb1718_0.02.51_plan.mp3',
 	'hhvb1718_0.03.38_ik-weet-het-ook-niet-meer.mp3',
@@ -267,7 +282,11 @@ for (var file of files) {
 }
 var prei = document.createElement('img')
 prei.setAttribute('src', 'prei.png')
-main.appendChild(prei)
+var aprei = document.createElement('a')
+aprei.setAttribute('href', soundurl('hhvb1617_0.52.16_prei.mp3'))
+aprei.setAttribute('onclick', 'dosound("hhvb1617_0.52.16_prei.mp3")')
+aprei.appendChild(prei)
+main.appendChild(aprei)
 showsound(files[0])
 if (spliturl.length == 2) {
 	for (file of files) {
