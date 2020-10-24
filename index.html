@@ -10,6 +10,7 @@ body{font-family:sans-serif}
 #b{border-top:2px solid;text-align:center;position:fixed;bottom:0;left:0;right:0;background:#eee;height:12em}
 #a a{display:inline-block;margin:.2em .4em;background:#eee;border-radius:3px;border:1px solid #ccc;padding:.3em .4em}
 #a a:hover{background:#bbb}
+#a img{display:block;margin:auto}
 div>div{border-radius:2px;background:#ddd;padding:0.5em;margin-bottom:1em}
 h2{margin:0}
 h1 img{height:1em}
@@ -263,6 +264,9 @@ for (var file of files) {
 	a.setAttribute('onclick', 'dosound("' + file + '")')
 	divs[p[0]].appendChild(a)
 }
+var prei = document.createElement('img')
+prei.setAttribute('src', 'prei.png')
+main.appendChild(prei)
 showsound(files[0])
 if (spliturl.length == 2) {
 	for (file of files) {
